@@ -8,8 +8,8 @@ export const experiences: Experience[] = [
     company: 'Commerzbank via Accenture',
     displayCompany: 'Commerzbank',
     relationship: 'via Accenture',
-    logo: '/logos/commerzbank.png',
-    employerLogo: '/logos/accenture.png',
+    logo: `${import.meta.env.BASE_URL}logos/commerzbank.png`,
+    employerLogo: `${import.meta.env.BASE_URL}logos/accenture.png`,
     period: '2026 – Present',
     description:
       `Backend development for enterprise banking systems, extending PSD2 payment services using Java 21, Spring Boot, and the Spring ecosystem.`,
@@ -34,11 +34,11 @@ export const experiences: Experience[] = [
     company: `Microsoft via Accenture`,
     displayCompany: `Microsoft`,
     relationship: `via Accenture`,
-    logo: `/logos/microsoft.png`,
-    employerLogo: `/logos/accenture.png`,
+    logo: `${import.meta.env.BASE_URL}logos/microsoft.png`,
+    employerLogo: `${import.meta.env.BASE_URL}logos/accenture.png`,
     period: `2023 – 2025`,
     description: `Supported independent software vendors (ISVs) across 
-    EMEA in adopting Microsoft Azure and navigating the Microsoft commercial marketplace.`, 
+    EMEA in adopting Microsoft Azure and navigating the Microsoft commercial marketplace.`,
     responsibilities: [
       `Technical Discovery: Led discovery and planning sessions to assess software solutions, technical requirements, and cloud adoption needs.`,
       `Azure Consulting: Provided technical guidance on Azure services, cloud architecture, and solution integration.`,
@@ -57,7 +57,7 @@ export const experiences: Experience[] = [
     id: '3rdi',
     role: 'Full-Stack Developer',
     company: '3RDi',
-    logo: '/logos/3rdi.svg',
+    logo: `${import.meta.env.BASE_URL}logos/3rdi.svg`,
     period: '2022 – 2023',
     description:
       'Developed a cloud-based sales analytics platform, combining interactive data visualizations with a microservices-based backend.',
@@ -85,7 +85,7 @@ export const experiences: Experience[] = [
     id: `acronis`,
     role: `QA Engineer`,
     company: `Acronis`,
-    logo: `/logos/acronis.png`,
+    logo: `${import.meta.env.BASE_URL}logos/acronis.png`,
     period: `2021 – 2022`,
     description: `Worked on software quality assurance, testing application functionality and identifying defects to support reliable software releases.`,
     responsibilities: [

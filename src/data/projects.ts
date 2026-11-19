@@ -18,7 +18,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/xrybrsx/stock-profit-app",
     liveUrl:
       "https://stock-profit-app-a3abcnb0erhdgyev.westeurope-01.azurewebsites.net/",
-    image: ["/projects/stock-calculator.png"],
+    image: [`${import.meta.env.BASE_URL}projects/stock-calculator.png`],
   },
   {
     id: "social-media-analytics",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
       "Twitter API",
     ],
     githubUrl: "https://github.com/xrybrsx/comp3200",
-    image: ["/projects/pie-chart.png", "/projects/scatter-chart.png"],
+    image: [`${import.meta.env.BASE_URL}projects/pie-chart.png`, `${import.meta.env.BASE_URL}projects/scatter-chart.png`],
   },
   {
     id: "interactive-map",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "Cypress",
     ],
     githubUrl: "https://github.com/xrybrsx/drag.io",
-    image: ["/projects/interactive-map.png"],
+    image: [`${import.meta.env.BASE_URL}projects/interactive-map.png`],
   },
   {
     id: "runway-redeclaration",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
       "University cloud application that helps users explore resume examples, filter CVs, and upload their own documents.",
     technologies: ["Azure"],
     githubUrl: "https://github.com/xrybrsx/COMP3207",
-    image: ["/projects/cv-library.png", "/projects/cv-library-login.png"],
+    image: [`${import.meta.env.BASE_URL}projects/cv-library.png`, `${import.meta.env.BASE_URL}projects/cv-library-login.png`],
   },
   {
     id: "recipe-book",
@@ -83,6 +83,6 @@ export const projects: Project[] = [
       "Team hackathon project developed in under eight hours. A desktop application suggesting recipes based on ingredients selected by the user.",
     technologies: ["Java", "JavaFX"],
     githubUrl: "https://github.com/xrybrsx/hackaSoton2020",
-    image: ["/projects/recipe-book.gif"],
+    image: [`${import.meta.env.BASE_URL}projects/recipe-book.gif`],
   },
 ];

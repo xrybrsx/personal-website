@@ -1,0 +1,32 @@
+
+:root {
+  /* Backgrounds */
+  --color-background: #15141b;
+  --color-surface: #1d1b25;
+  --color-surface-hover: #282532;
+
+  /* Typography */
+  --color-text: #ece8ef;
+  --color-text-muted: #a7a1ae;
+
+  /* Accent */
+  --color-accent: #b79be5;
+  --color-accent-hover: #d0baf3;
+
+  /* Borders */
+  --color-border: rgba(236, 232, 239, 0.15);
+
+  /* Typography */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Layout */
+  --container-width: 1360px;
+  --page-padding: clamp(24px, 5vw, 80px);
+  --section-spacing: clamp(80px, 10vw, 150px);
+
+  /* Transitions */
+  --transition-fast: 180ms ease;
+  --transition-normal: 300ms ease;
+}

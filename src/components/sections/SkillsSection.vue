@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { skillCategories } from '@/data/skills'
 import SkillGroup from '@/components/ui/SkillGroup.vue'
@@ -7,22 +6,17 @@ import SkillGroup from '@/components/ui/SkillGroup.vue'
 <template>
   <section id="skills" class="skills-section">
     <div class="section-heading">
-      <span class="section-number">[04]</span>
+
       <h2>Technical Skills</h2>
     </div>
 
     <div class="skills-grid">
-      <SkillGroup
-        v-for="category in skillCategories"
-        :key="category.id"
-        :category="category"
-      />
+      <SkillGroup v-for="category in skillCategories" :key="category.id" :category="category" />
     </div>
   </section>
 </template>
 
 <style scoped>
-
 .section-heading {
   display: flex;
   align-items: center;

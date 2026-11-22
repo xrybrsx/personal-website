@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import { profile } from '@/data/profile'
@@ -6,24 +5,24 @@ import { profile } from '@/data/profile'
 const contactLinks = computed(() => [
   ...(profile.email
     ? [{
-        label: 'EMAIL',
-        value: profile.email,
-        url: `mailto:${profile.email}`,
-      }]
+      label: 'EMAIL',
+      value: profile.email,
+      url: `mailto:${profile.email}`,
+    }]
     : []),
   ...(profile.linkedinUrl
     ? [{
-        label: 'LINKEDIN',
-        value: 'Connect on LinkedIn',
-        url: profile.linkedinUrl,
-      }]
+      label: 'LINKEDIN',
+      value: 'Connect on LinkedIn',
+      url: profile.linkedinUrl,
+    }]
     : []),
   ...(profile.githubUrl
     ? [{
-        label: 'GITHUB',
-        value: 'Explore my GitHub',
-        url: profile.githubUrl,
-      }]
+      label: 'GITHUB',
+      value: 'Explore my GitHub',
+      url: profile.githubUrl,
+    }]
     : []),
 ])
 </script>
@@ -31,7 +30,7 @@ const contactLinks = computed(() => [
 <template>
   <section id="contact" class="contact-section">
     <div class="contact-meta">
-      <span class="section-number">[06] / CONTACT</span>
+
       <span class="section-caption">
         END OF INDEX — START OF CONVERSATION
       </span>
@@ -50,14 +49,9 @@ const contactLinks = computed(() => [
     </div>
 
     <div v-if="contactLinks.length" class="contact-links">
-      <a
-        v-for="link in contactLinks"
-        :key="link.label"
-        :href="link.url"
+      <a v-for="link in contactLinks" :key="link.label" :href="link.url"
         :target="link.label === 'EMAIL' ? undefined : '_blank'"
-        :rel="link.label === 'EMAIL' ? undefined : 'noopener noreferrer'"
-        class="contact-link"
-      >
+        :rel="link.label === 'EMAIL' ? undefined : 'noopener noreferrer'" class="contact-link">
         <span class="link-label">{{ link.label }}</span>
         <span class="link-value">{{ link.value }}</span>
         <span class="link-arrow" aria-hidden="true">↗</span>
@@ -179,6 +173,7 @@ const contactLinks = computed(() => [
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .contact-link,
   .link-arrow {
     transition: none;

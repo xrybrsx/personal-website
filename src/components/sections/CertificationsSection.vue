@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { certifications } from '@/data/certifications'
 import CertificationCard from '@/components/ui/CertificationCard.vue'
@@ -7,22 +6,18 @@ import CertificationCard from '@/components/ui/CertificationCard.vue'
 <template>
   <section id="certifications" class="certifications-section">
     <div class="section-heading">
-      <span class="section-number">[05]</span>
+
       <h2>Certifications</h2>
     </div>
 
     <div class="certifications-list">
-      <CertificationCard
-        v-for="certification in certifications"
-        :key="certification.id"
-        :certification="certification"
-      />
+      <CertificationCard v-for="certification in certifications" :key="certification.id"
+        :certification="certification" />
     </div>
   </section>
 </template>
 
 <style scoped>
-
 .section-heading {
   display: flex;
   align-items: center;

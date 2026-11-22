@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { ref } from 'vue'
 import { experiences } from '@/data/experience'
@@ -18,7 +17,7 @@ function toggleExperience(id: string) {
   <section id="experience" class="experience-section">
     <div class="section-heading">
       <div class="section-title">
-        <span class="section-number">[02]</span>
+
         <h2>Experience</h2>
       </div>
 
@@ -27,19 +26,12 @@ function toggleExperience(id: string) {
       </span>
     </div>
 
-    <ExperienceCard
-      v-for="(experience, index) in experiences"
-      :key="experience.id"
-      :experience="experience"
-      :index="index"
-      :expanded="activeExperienceId === experience.id"
-      @toggle="toggleExperience(experience.id)"
-    />
+    <ExperienceCard v-for="(experience, index) in experiences" :key="experience.id" :experience="experience"
+      :index="index" :expanded="activeExperienceId === experience.id" @toggle="toggleExperience(experience.id)" />
   </section>
 </template>
 
 <style scoped>
-
 .section-heading {
   display: flex;
   justify-content: space-between;

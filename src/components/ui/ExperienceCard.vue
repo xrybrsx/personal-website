@@ -312,27 +312,87 @@ function onLeave(el: Element, done: () => void) {
 
 @media (max-width: 650px) {
   .experience-trigger {
-    grid-template-columns: 30px minmax(0, 1fr) 25px;
-    gap: 12px;
-    padding: 28px 0;
+    grid-template-columns: 24px minmax(0, 1fr) 24px;
+    column-gap: 12px;
+    row-gap: 8px;
+    padding: 26px 0;
+    align-items: start;
+  }
+
+  .entry-number {
+    font-size: 11px;
+    padding-top: 7px;
+  }
+
+  .entry-heading {
+    gap: 9px;
+  }
+
+  .entry-company-row {
+    gap: 10px;
+  }
+
+  .company-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .entry-company {
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.15;
+  }
+
+  .entry-relationship {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    gap: 6px;
+  }
+
+  .employer-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+  .entry-role {
+    font-size: 11px;
+    line-height: 1.6;
   }
 
   .entry-period {
     grid-column: 2;
+    grid-row: 2;
+    font-size: 11px;
     padding: 0;
   }
 
   .entry-arrow {
     grid-column: 3;
     grid-row: 1;
+    font-size: 22px;
   }
 
-  .experience-details {
-    padding: 0 0 32px 42px;
+  .details-reveal {
+    overflow: hidden;
+    padding: 0 48px 48px 80px;
+  }
+
+  .entry-description {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 24px;
   }
 
   .responsibility-list li {
+    grid-template-columns: 24px minmax(0, 1fr);
     gap: 10px;
+    padding: 14px 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .technology-tag {
+    font-size: 10px;
+    padding: 6px 10px;
   }
 }
 
@@ -385,6 +445,7 @@ function onLeave(el: Element, done: () => void) {
 
 .details-reveal {
   overflow: hidden;
+  padding: 0 48px 48px 80px;
 }
 
 .entry-arrow {

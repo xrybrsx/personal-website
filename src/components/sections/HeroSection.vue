@@ -115,20 +115,33 @@ onUnmounted(() => {
   </section>
 </template>
 
+
 <style scoped>
+/* ========================================
+   HERO LAYOUT
+======================================== */
+
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: 64px;
 
   min-height: 520px;
   padding-block: 70px;
+
+  position: relative;
+  isolation: isolate;
 }
 
 .hero-content {
   max-width: 620px;
+  min-width: 0;
 }
+
+/* ========================================
+   HERO TYPOGRAPHY
+======================================== */
 
 .hero-eyebrow {
   display: block;
@@ -158,6 +171,10 @@ onUnmounted(() => {
   margin-bottom: 32px;
 }
 
+/* ========================================
+   HERO BUTTONS
+======================================== */
+
 .hero-actions {
   display: flex;
   gap: 16px;
@@ -169,11 +186,18 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 100px;
   padding: 15px 28px;
+
   font-family: var(--font-mono);
   font-size: 13px;
-  transition: all var(--transition-normal);
+  text-decoration: none;
+
+  transition:
+    background var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
 }
 
 .button-primary {
@@ -183,27 +207,70 @@ onUnmounted(() => {
 
 .button-secondary {
   border: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
 .button-primary:hover {
   background: var(--color-accent-hover);
+  transform: translateY(-2px);
 }
 
 .button-secondary:hover {
   border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
+
+.button-primary:focus-visible,
+.button-secondary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   HERO VISUAL
+======================================== */
 
 .hero-visual {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: relative;
+  min-width: 0;
 }
 
+/* Decorative curved outline */
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+
+  width: min(420px, 85vw);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(183, 155, 229, 0.16);
+  border-radius: 45% 55% 65% 35%;
+
+  transform: rotate(-30deg);
+  pointer-events: none;
+}
+
+/* ========================================
+   CODE CARD
+======================================== */
+
 .code-card {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   max-width: 460px;
+  min-width: 0;
   padding: 28px;
-  background: var(--color-surface);
+
+  background: rgba(29, 27, 37, 0.85);
+  backdrop-filter: blur(12px);
+
   border: 1px solid var(--color-border);
   border-radius: 14px;
 }
@@ -225,89 +292,110 @@ onUnmounted(() => {
 .code-card pre {
   margin: 0;
   overflow-x: auto;
+
   font-family: var(--font-mono);
   font-size: 12px;
   line-height: 2;
   color: var(--color-text);
 }
 
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: auto;
-    padding-block: 80px;
+
+    padding-block: 64px 80px;
     gap: 48px;
   }
 
   .hero h1 {
     font-size: clamp(48px, 8vw, 72px);
   }
+
+  .hero-visual::before {
+    width: min(280px, 75vw);
+  }
 }
 
-/* Hero background composition */
-.hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
+/* ========================================
+   MOBILE
+======================================== */
 
+@media (max-width: 600px) {
+  .hero {
+    gap: 32px;
+    padding-block: 48px 56px;
+  }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
+  .hero-content {
+    max-width: 100%;
+  }
 
-  width: 600px;
-  height: 600px;
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+  }
 
-  top: -80px;
-  right: 0;
+  .hero h1 {
+    font-size: clamp(42px, 11vw, 58px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
 
-  background: radial-gradient(circle,
-      rgba(183, 155, 229, 0.12) 0%,
-      rgba(125, 92, 180, 0.05) 35%,
-      transparent 70%);
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
 
-  border-radius: 50%;
-  pointer-events: none;
-}
+  .hero-actions {
+    gap: 10px;
+  }
 
+  .button-primary,
+  .button-secondary {
+    padding: 12px 18px;
+    font-size: 12px;
+  }
 
-.hero-visual {
-  position: relative;
-}
-
-/* Abstract curved form behind the code */
-.hero-visual::before {
-  content: "";
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  border: 1px solid rgba(183, 155, 229, 0.22);
-  border-radius: 45% 55% 65% 35%;
-
-  transform: rotate(-30deg);
-  pointer-events: none;
-}
-
-.code-card {
-  position: relative;
-  z-index: 1;
-
-  background: rgba(29, 27, 37, 0.85);
-  backdrop-filter: blur(12px);
-}
-
-@media (max-width: 900px) {
-  .hero::before {
-    right: -300px;
+  .hero-visual {
+    width: 100%;
   }
 
   .hero-visual::before {
-    width: 280px;
-    height: 280px;
+    width: min(220px, 70vw);
+  }
+
+  .code-card {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .code-card-header {
+    margin-bottom: 12px;
+  }
+
+  .code-card pre {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .button-primary,
+  .button-secondary {
+    transition: none;
   }
 }
 </style>

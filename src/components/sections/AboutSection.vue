@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { profile } from '@/data/profile'
 </script>
@@ -6,7 +5,6 @@ import { profile } from '@/data/profile'
 <template>
   <section id="about" class="about-section">
     <div class="section-heading">
-      <span class="section-number">[01]</span>
       <h2>About</h2>
     </div>
 
@@ -36,7 +34,6 @@ import { profile } from '@/data/profile'
 </template>
 
 <style scoped>
-
 .section-heading {
   display: flex;
   align-items: center;

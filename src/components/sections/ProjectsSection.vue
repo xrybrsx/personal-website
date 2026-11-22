@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, onUnmounted, type ComponentPublicInstance } from 'vue'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { refreshScrollLayout } from '@/utils/refreshScrollLayout'
 import { projects } from '@/data/projects'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 
@@ -47,7 +47,7 @@ async function toggleProjects() {
         clearProps: 'height,opacity,visibility',
       })
       isAnimating.value = false
-      ScrollTrigger.refresh()
+      refreshScrollLayout()
       return
     }
 
@@ -68,7 +68,7 @@ async function toggleProjects() {
           })
 
           isAnimating.value = false
-          ScrollTrigger.refresh()
+          refreshScrollLayout()
         },
       },
     )
@@ -93,7 +93,7 @@ async function toggleProjects() {
         // The hidden class owns the collapsed styles; don't leave inline styles
         // behind for the next expansion.
         gsap.set(element, { clearProps: 'height,opacity,visibility' })
-        ScrollTrigger.refresh()
+        refreshScrollLayout()
 
         if (reducedMotion) {
           window.scrollTo({ top: returnY, behavior: 'instant' })

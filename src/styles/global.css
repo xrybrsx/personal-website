@@ -21,12 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-background);
 
-background-image: radial-gradient(
-  ellipse 70% 650px at 75% 350px,
-  rgba(183, 155, 229, 0.075) 0%,
-  rgba(125, 92, 180, 0.025) 45%,
-  transparent 100%
-);
+background-image: var(--page-background-image);
 
 background-repeat: no-repeat;
 }

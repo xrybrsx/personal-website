@@ -35,7 +35,7 @@ onUnmounted(() => {
 
 
 <template>
-  <header class="site-header">
+  <header class="site-header" @keydown.esc="closeMenu">
     <nav class="navbar" aria-label="Main navigation">
       <a href="#home" class="navbar-logo" @click="closeMenu">
         RB
@@ -252,11 +252,21 @@ onUnmounted(() => {
   }
 
   .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: calc(-1 * var(--page-padding));
+    right: calc(-1 * var(--page-padding));
     display: flex;
     flex-direction: column;
-    padding: 16px 0 32px;
-    background: var(--color-background);
-    overflow: hidden;
+    max-height: calc(100dvh - 77px);
+    padding: 16px var(--page-padding) 32px;
+    background-color: var(--color-background);
+    background-image: var(--page-background-image);
+    background-position: 0 -77px;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--color-border);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .mobile-link {
@@ -292,13 +302,13 @@ onUnmounted(() => {
     text-transform: uppercase;
   }
 
-  /* Smooth expand / collapse */
+  /* Animate the overlay without changing the page layout. */
 
   .mobile-nav-enter-active,
   .mobile-nav-leave-active {
     transition:
-      opacity 300ms ease,
-      transform 300ms ease;
+      opacity 180ms ease,
+      transform 180ms ease;
   }
 
   .mobile-nav-enter-from,

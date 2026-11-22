@@ -4,6 +4,8 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
+// Safari's address bar changes the viewport height while scrolling.
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 export function useScrollReveal(
     container: Ref<HTMLElement | null>,

@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { refreshScrollLayout } from '@/utils/refreshScrollLayout'
 import type { Project } from '@/types/project'
 import ProjectPreview from '@/components/ui/ProjectPreview.vue'
 
-const props = defineProps<{
+defineProps<{
   project: Project
   index: number
 }>()
 
-const expanded = ref(props.index === 0)
+const expanded = ref(false)
 const detailsRef = ref<HTMLElement | null>(null)
 
 let animation: gsap.core.Tween | undefined
@@ -26,7 +26,7 @@ function toggleProject() {
   ).matches
 
   const finish = () => {
-    ScrollTrigger.refresh()
+    refreshScrollLayout()
   }
 
   if (reducedMotion) {

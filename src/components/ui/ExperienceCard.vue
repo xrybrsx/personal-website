@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Experience } from '@/types/experience'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { refreshScrollLayout } from '@/utils/refreshScrollLayout'
 
 defineProps<{
   experience: Experience
@@ -22,7 +22,7 @@ const prefersReducedMotion = () =>
 function onEnter(el: Element, done: () => void) {
   if (prefersReducedMotion()) {
     done()
-    ScrollTrigger.refresh()
+    refreshScrollLayout()
     return
   }
 
@@ -42,7 +42,7 @@ function onEnter(el: Element, done: () => void) {
         clearProps: 'height,opacity',
       })
       done()
-      ScrollTrigger.refresh()
+      refreshScrollLayout()
     },
   })
 
@@ -71,7 +71,7 @@ function onEnter(el: Element, done: () => void) {
 function onLeave(el: Element, done: () => void) {
   if (prefersReducedMotion()) {
     done()
-    ScrollTrigger.refresh()
+    refreshScrollLayout()
     return
   }
 
@@ -82,7 +82,7 @@ function onLeave(el: Element, done: () => void) {
     ease: 'power2.inOut',
     onComplete: () => {
       done()
-      ScrollTrigger.refresh()
+      refreshScrollLayout()
     },
   })
 }

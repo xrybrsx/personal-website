@@ -3,9 +3,7 @@ import { ref } from 'vue'
 import { experiences } from '@/data/experience'
 import ExperienceCard from '@/components/ui/ExperienceCard.vue'
 
-const activeExperienceId = ref<string | null>(
-  experiences[0]?.id ?? null
-)
+const activeExperienceId = ref<string | null>(null)
 
 function toggleExperience(id: string) {
   activeExperienceId.value =
